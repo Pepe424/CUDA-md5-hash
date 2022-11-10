@@ -11,7 +11,7 @@ __global__ void kernel_mult(int grid, unsigned long long block_length, int gpu, 
 	password pwd;
 
 	pwd.length = len;
-	unsigned long long iter = (BLOCK_SIZE * blockIdx.x + threadIdx.x) + (grid * block_length) + ((block_length/4) * gpu); //1. číslo iterace| 2. posun o grid| 3. posun o čtvrtinu(rozdělení mezi 4 gpu)
+	unsigned long long iter = (THREADS * blockIdx.x + threadIdx.x) + (grid * block_length) + ((block_length/4) * gpu); //1. číslo iterace| 2. posun o grid| 3. posun o čtvrtinu(rozdělení mezi 4 gpu)
 	for (size_t i = 0; i < len; i++)
 	{
 		pwd.word[i] = iter % 26 + 97;
