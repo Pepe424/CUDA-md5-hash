@@ -10,10 +10,6 @@ typedef struct password_t{
     size_t length;
 } password;
 
-typedef struct word16_t{
-    char word[16];
-} word16;
-
 // Constants are the integer part of the sines of integers (in radians) * 2^32.
 __constant__ uint32_t k[64] = {
 	0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
